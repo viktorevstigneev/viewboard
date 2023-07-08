@@ -1,8 +1,8 @@
 {
 	"name": "menu_front",
+	"homepage": "/",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "/",
 	"dependencies": {
 		"@react-three/cannon": "^6.5.2",
 		"@react-three/drei": "^9.78.1",
