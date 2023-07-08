@@ -1,110 +1,65 @@
-import React, { useEffect, useState, Suspense, useCallback, useMemo, useRef } from 'react';
-
-
-import * as THREE from 'three';
-import { Canvas, extend, useFrame, useLoader, useThree } from 'react-three-fiber';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
 import './style.css';
-import circleImg from '../../../img/circle.png';
-extend({ OrbitControls });
+import React, { Suspense, useEffect, useState } from 'react';
+import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber';
+import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import { Physics, usePlane, useBox, useSphere } from '@react-three/cannon';
+import { Vector3 } from 'three';
 
-function CameraControls() {
-	const {
-		camera,
-		gl: { domElement },
-	} = useThree();
+const Box = (props) => {
+	const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props }));
+	const [clicked, setClicked] = useState(false);
+	const [wood] = useLoader(TextureLoader, ['wood.jpg']);
 
-	const controlsRef = useRef();
-	useFrame(() => controlsRef.current.update());
-
-	return <orbitControls ref={controlsRef} args={[camera, domElement]} autoRotate autoRotateSpeed={-0.2} />;
-}
-
-function Points() {
-	const imgTex = useLoader(THREE.TextureLoader, circleImg);
-	const bufferRef = useRef();
-
-	let t = 0;
-	let f = 0.002;
-	let a = 3;
-	const graph = useCallback(
-		(x, z) => {
-			return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
-		},
-		[t, f, a]
+	return (
+		<mesh ref={ref} scale={clicked ? 2 : 1} onClick={() => setClicked(!clicked)}>
+			<boxGeometry />
+			<meshStandardMaterial displacementScale={0.5} map={wood} />
+		</mesh>
 	);
+};
 
-	const count = 100;
-	const sep = 3;
-	let positions = useMemo(() => {
-		let positions = [];
+const Sphere = (props) => {
+	const [ref] = useSphere(() => ({ mass: 1, position: [0, 5, 0], ...props }));
 
-		for (let xi = 0; xi < count; xi++) {
-			for (let zi = 0; zi < count; zi++) {
-				let x = sep * (xi - count / 2);
-				let z = sep * (zi - count / 2);
-				let y = graph(x, z);
-				positions.push(x, y, z);
-			}
-		}
+	const [wood] = useLoader(TextureLoader, ['wood.jpg']);
 
-		return new Float32Array(positions);
-	}, [count, sep, graph]);
 
-	useFrame(() => {
-		t += 15;
+	return (
+		<mesh
+			ref={ref}
+			scale={1}
+			
+		>
+			<sphereGeometry />
+			<meshStandardMaterial displacementScale={0.2} map={wood} />
+		</mesh>
+	);
+};
 
-		const positions = bufferRef.current.array;
+function Rig() {
+	const { camera, mouse } = useThree();
+	const vec = new Vector3();
 
-		let i = 0;
-		for (let xi = 0; xi < count; xi++) {
-			for (let zi = 0; zi < count; zi++) {
-				let x = sep * (xi - count / 2);
-				let z = sep * (zi - count / 2);
+	return useFrame(() => {
+		camera.position.lerp(vec.set(mouse.x, mouse.y, camera.position.z), 0.55);
+		camera.lookAt(0, 0, 0);
 
-				positions[i + 1] = graph(x, z);
-				i += 3;
-			}
-		}
-
-		bufferRef.current.needsUpdate = true;
 	});
-
-	return (
-		<points>
-			<bufferGeometry attach="geometry">
-				<bufferAttribute
-					ref={bufferRef}
-					attachObject={['attributes', 'position']}
-					array={positions}
-					count={positions.length / 3}
-					itemSize={3}
-				/>
-			</bufferGeometry>
-
-			<pointsMaterial
-				attach="material"
-				map={imgTex}
-				color={0x00aaff}
-				size={0.5}
-				sizeAttenuation
-				transparent={false}
-				alphaTest={0.5}
-				opacity={1.0}
-			/>
-		</points>
-	);
 }
 
-function AnimationCanvas() {
+function Plane(props) {
+	const [wood] = useLoader(TextureLoader, ['wood.jpg']);
+
+	const [ref] = usePlane(() => ({
+		rotation: [-Math.PI / 2, 0, 0],
+		...props,
+	}));
+
 	return (
-		<Canvas colormanagement="false" camera={{ position: [100, 10, 0], fov: 75 }}>
-			<Suspense fallback={null}>
-				<Points />
-			</Suspense>
-			<CameraControls />
-		</Canvas>
+		<mesh ref={ref} >
+			<planeGeometry args={[30, 30]} />
+			<meshStandardMaterial displacementScale={0.5} map={wood} />
+		</mesh>
 	);
 }
 
@@ -112,8 +67,17 @@ const MainPage = () => {
 	return (
 		<>
 			<main className="home__main">
-				<Suspense fallback={<div>Loading...</div>}>
-					<AnimationCanvas />
+				<Suspense fallback={null}>
+					<Canvas>
+						<Physics>
+							<ambientLight intensity={0.1} />
+							<pointLight position={[10, 10, 10]} />
+							<Sphere position={[2, 5, -1]} />
+							<Box position={[1, 2, -1]} />
+							<Plane position={[1, -2, -1]} />
+							<Rig />
+						</Physics>
+					</Canvas>
 				</Suspense>
 			</main>
 		</>
