@@ -8,6 +8,7 @@ import Header from './components/common/Header';
 
 
 const MainPage = lazy(() => import('./components/pages/MainPage'));
+const ProjectsPage = lazy(() => import('./components/pages/ProjectsPage'));
 
 function App() {
 	const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
@@ -27,6 +28,7 @@ function App() {
 				<Suspense fallback={'load'}>
 					<Routes>
 						<Route path="/" element={<MainPage />} />
+						<Route path="/projects" element={<ProjectsPage />} />
 					</Routes>
 				</Suspense>
 			</IntlProvider>

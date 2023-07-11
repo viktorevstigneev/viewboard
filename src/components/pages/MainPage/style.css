@@ -2,7 +2,8 @@
 	/* background: url('../../../img/main_bg.png') 50% no-repeat; */
 	/* background-size: cover; */
 	background: white;
-	width:100%;
+	width:60%;
+	margin: 0 auto;
 	height: 100%;
 }
 

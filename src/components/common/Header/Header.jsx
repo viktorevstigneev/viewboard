@@ -21,12 +21,13 @@ const Header = ({ handleChange, currentLocale, theme }) => {
 	return (
 		<header className="header">
 			<div className="header__container">
-				
-
 				<div className="header__nav-left">
 					<Link className="header__link" to="/">
 						<FormattedMessage id="home_link" />
 					</Link>
+					<Link className="header__link" to="/projects">
+						<FormattedMessage id="home_link" /> 111
+					</Link> 
 
 					<div className="header__link">
 						<select className="header__select" onChange={handleChange} value={currentLocale}>

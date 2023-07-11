@@ -1,0 +1,59 @@
+.task {
+	width: 500px;
+	margin: 100px auto 0;
+	background: rgb(54, 54, 54);
+}
+
+.task__container {
+	width: 90%;
+	padding: 10px;
+}
+
+.task__title {
+	color: blueviolet;
+	text-align: center;
+
+	font-family: sans-serif;
+}
+
+.task__input {
+	display: block;
+	width: 100%;
+	color: black;
+}
+
+.task__line {
+	display: block;
+	height: 1px;
+	width: 100%;
+	background: blueviolet;
+	margin-top: 40px;
+}
+
+.taks__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.task__card {
+	width: 150px;
+	height: 200px;
+	padding: 10px;
+}
+
+.task__avatar {
+	width: 150px;
+	height: 150px;
+	background: rgb(255, 166, 0);
+    margin: 0 auto;
+}
+
+
+.task__name{
+    color: aliceblue;
+    text-align: center;
+    background: black;
+    padding: 5px;
+    margin-top: 0;
+}
