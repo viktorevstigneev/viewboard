@@ -1,18 +1,43 @@
 .header {
 	background: rgb(0, 0, 0);
-	padding: 5px;
-	/* position: fixed;
-	top: 0; */
-	/* width: 100%; */
-	/* z-index: 1000; */
+	/* padding: 5px; */
+}
+
+.menu_btn {
+	display: none;
+	width: fit-content;
+	padding: 0;
+	height: fit-content;
+	
+}
+.menu_btn div {
+	width: 30px;
+	height: 2px;
+	margin-top: 5px;
+
+	background-color: #222222;
+
+}
+
+@media (max-width: 500px) {
+	.header {
+		display: none;
+		position: relative;
+		left: -800px;
+	}
+
+	.menu_btn {
+		display: block;
+	}
 }
 
 .header__container {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
-	display: flex;
+	/* display: flex;
 	justify-content: space-between;
-	align-items: center;
+	flex-direction: column;
+	align-items: center; */
 }
 
 .header__logo {
@@ -20,24 +45,42 @@
 	height: 50px;
 }
 .header__nav {
-	display: flex;
+	/* display: flex;
 	justify-content: space-around;
-}
-
-.header__nav-left {
-	display: flex;
-}
-.header__nav-right {
-	display: flex;
-	align-items: center;
+	flex-direction: column; */
 }
 
 .header__link {
 	color: white;
 	display: block;
-	border-radius: 100px;
-	margin-left: 10px;
+	/* border-radius: 100px; */
+	/* margin-left: 10px; */
 	text-decoration: none;
+	border: 1px solid greenyellow;
+	padding: 5px 0;
+	width: 100%;
+
+	/* width: fit-content; */
+}
+
+.header__select {
+	background: transparent;
+	color: white;
+	border: none;
+	/* font-size: 1.2rem; */
+}
+
+.header__option {
+	color: black;
+	background: #cccccccc;
+	outline: none;
+	/* font-size: 1.2rem; */
+}
+
+.menu_btn-close{
+	background: transparent;
+	color: aliceblue;
+	border: none;
 }
 
 .cart__link {
@@ -46,7 +89,7 @@
 	bottom: 5px;
 }
 
-.cart__amount{
+.cart__amount {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -61,19 +104,9 @@
 	height: 35px;
 }
 
-.header__select {
-	background: transparent;
-	color: white;
-	border: none;
-		font-size: 1.2rem;
-}
 
-.header__option {
-	color: black;
-	background: #cccccccc;
-	outline: none;
-	font-size: 1.2rem;
-}
+
+
 
 /* ------------------------ */
 .auth__image {
@@ -111,7 +144,7 @@
 }
 
 .auth__button {
-	padding: 10px ;
+	padding: 10px;
 	font-family: Pompiere;
 	font-size: 15px;
 	background: rgba(0, 0, 0, 0.767);

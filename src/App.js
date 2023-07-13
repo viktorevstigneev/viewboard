@@ -5,6 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { LOCALES } from './components/i18n/locales';
 import { messages } from './components/i18n/messages';
 import Header from './components/common/Header';
+import Slider from './components/common/Slider'
 
 
 const MainPage = lazy(() => import('./components/pages/MainPage'));
@@ -24,7 +25,7 @@ function App() {
 		<BrowserRouter>
 			<IntlProvider messages={messages[currentLocale]} locale={currentLocale} defaultLocale={LOCALES.ENGLISH}>
 				<Header handleChange={handleChange} currentLocale={currentLocale} />
-				<Suspense fallback={'load'}>
+				<Suspense fallback={<Slider/>}>
 					<Routes>
 						<Route path="/" element={<MainPage />} />
 					</Routes>

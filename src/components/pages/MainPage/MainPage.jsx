@@ -9,6 +9,7 @@ import { Car } from '../../common/Car/Car';
 import { Ground } from '../../common/Ground/Ground';
 import { FloatingGrid } from '../../common/FloatingGrid/FloatingGrid';
 import { Rings } from '../../common/Rings/Rings';
+import Slider from '../../common/Slider';
 
 function CarShow() {
 	return (
@@ -71,12 +72,10 @@ function CarShow() {
 	);
 }
 
-
-
 const MainPage = () => {
 	return (
 		<Main>
-			<Suspense fallback="null">
+			<Suspense fallback={<Slider />}>
 				<Canvas shadows>
 					<CarShow />
 				</Canvas>
