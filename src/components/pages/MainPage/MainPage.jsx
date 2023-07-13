@@ -40,9 +40,9 @@ function Line({ start, end }) {
 		ref.current.geometry.setFromPoints([start, end].map((point) => new THREE.Vector3(...point)));
 	}, [start, end]);
 	return (
-		<line ref={ref}>
+		<line ref={ref} >
 			<bufferGeometry />
-			<lineBasicMaterial color="hotpink" />
+			<lineBasicMaterial  color="aqua" />
 		</line>
 	);
 }
@@ -58,7 +58,7 @@ const MainPage = () => {
 					<spotLight position={[10, 15, 10]} angle={0.3} />
 					<Physics>
 						<Box />
-						<Line start={[1, 0, 1]} end={[1, 1, 0]} />
+						<Line start={[0, 0, 1]} end={[1, 1, 0]} />
 						<Plane />
 					</Physics>
 				</Suspense>
