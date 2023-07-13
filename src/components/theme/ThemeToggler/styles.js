@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ToggleButton = styled.button`
 	display: block;
-	width: 100%;
+	width: fit-content;
 	text-align: center;
 	border: none;
 	border-radius: 100px;

@@ -77,7 +77,7 @@ const MainPage = () => {
 		<Main>
 			<Suspense fallback={<Slider />}>
 				<Canvas shadows>
-					<CarShow />
+					{/* <CarShow /> */}
 				</Canvas>
 			</Suspense>
 		</Main>

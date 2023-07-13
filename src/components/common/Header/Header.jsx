@@ -13,32 +13,13 @@ const Header = ({ handleChange, currentLocale, theme }) => {
 		{ name: 'Русский', code: LOCALES.RUSSIAN },
 	];
 
-	const [isOpen, setIsopne] = useState(false);
-	console.log('isOpen: ', isOpen);
 
 	return (
-		<>
-			<button
-				className="menu_btn"
-				onClick={() => {
-					setIsopne(true);
-				}}
-				style={{ display: isOpen ? 'none' : 'block' }}
-			>
-				<div></div>
-				<div></div>
-				<div></div>
-			</button>
-			<header className="header" style={{ display: isOpen ? 'block' : 'none', left: isOpen ? '0' : '-800px' }}>
+	
+		
+			<header className="header" >
 				<div className="header__container">
-					<button
-						className="menu_btn-close"
-						onClick={() => {
-							setIsopne(false);
-						}}
-					>
-						X
-					</button>
+					
 					<nav className="header__nav">
 						<Link className="header__link" to="/">
 							<FormattedMessage id="home_link" />
@@ -58,7 +39,7 @@ const Header = ({ handleChange, currentLocale, theme }) => {
 					</nav>
 				</div>
 			</header>
-		</>
+	
 	);
 };
 
