@@ -1,0 +1,109 @@
+.slider {
+	position: absolute;
+	left: 40%;
+	top: 10%;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	animation: spin4 infinite 9s;
+}
+
+.siler__item {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+
+	border-radius: 5px;
+
+	top: 0;
+	right: 0;
+
+	&:nth-child(1) {
+		background: aqua;
+		animation: spin1 infinite 2s;
+	}
+	&:nth-child(2) {
+		background: green;
+		animation: spin2 infinite 3s;
+	}
+	&:nth-child(3) {
+		background: rebeccapurple;
+		animation: spin3 infinite 4s;
+	}
+}
+
+@keyframes spin1 {
+	0% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+	50% {
+		border-radius: 100px;
+		background: rgb(67, 104, 204);
+		top: 30px;
+		right: 30px;
+		transform: scale(0.5);
+	}
+	100% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+}
+
+@keyframes spin2 {
+	0% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+	50% {
+		border-radius: 100px;
+		background: rgb(202, 165, 2);
+		top: -30px;
+		right: -20px;
+		transform: scale(2);
+	}
+	100% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+}
+
+@keyframes spin3 {
+	0% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+	50% {
+		border-radius: 100px;
+		background: rgb(243, 3, 55);
+		top: -30px;
+		right: 60px;
+		transform: scale(1.5);
+	}
+	100% {
+		border-radius: 5px;
+		top: 0;
+		right: 0;
+	}
+}
+
+@keyframes spin4 {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(360deg);
+		
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
