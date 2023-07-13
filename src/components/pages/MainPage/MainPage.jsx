@@ -1,6 +1,7 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { Main } from './styles.js';
+import * as THREE from 'three'
 // import Slider from '../../common/Slider/index.js';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
@@ -33,19 +34,33 @@ function Plane() {
 	);
 }
 
+function Line({ start, end }) {
+	const ref = useRef();
+	useLayoutEffect(() => {
+		ref.current.geometry.setFromPoints([start, end].map((point) => new THREE.Vector3(...point)));
+	}, [start, end]);
+	return (
+		<line ref={ref}>
+			<bufferGeometry />
+			<lineBasicMaterial color="hotpink" />
+		</line>
+	);
+}
+
 const MainPage = () => {
 	return (
 		<Main>
 			<Canvas>
 				<Suspense fallback="loading">
-				<OrbitControls />
-				<Stars />
-				<ambientLight intensity={0.5} />
-				<spotLight position={[10, 15, 10]} angle={0.3} />
-				<Physics>
-					<Box />
-					<Plane />
-				</Physics>
+					<OrbitControls />
+					<Stars />
+					<ambientLight intensity={0.5} />
+					<spotLight position={[10, 15, 10]} angle={0.3} />
+					<Physics>
+						<Box />
+						<Line start={[1, 0, 1]} end={[1, 1, 0]} />
+						<Plane />
+					</Physics>
 				</Suspense>
 			</Canvas>
 		</Main>
