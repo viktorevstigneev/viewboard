@@ -23,7 +23,7 @@ function CarShow() {
 				{(texture) => (
 					<>
 						<Environment map={texture} />
-						<Car />
+						{/* <Car /> */}
 					</>
 				)}
 			</CubeCamera>
@@ -76,7 +76,7 @@ function CarShow() {
 const MainPage = () => {
 	return (
 		<Main>
-			<Suspense fallback={null}>
+			<Suspense fallback="null">
 				<Canvas shadows>
 					<CarShow />
 				</Canvas>
