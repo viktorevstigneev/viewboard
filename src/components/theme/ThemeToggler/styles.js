@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ToggleButton = styled.button`
 	display: block;
+	position: relative;
 	width: fit-content;
 	text-align: center;
 	border: none;

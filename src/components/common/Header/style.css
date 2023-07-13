@@ -33,12 +33,16 @@
 	/* border: 1px solid greenyellow; */
 	padding: 5px;
 	width: fit-content;
+	text-transform: uppercase;
+	font-family: sans-serif;
 
 	/* width: fit-content; */
 }
 
 .header__select {
 	background: transparent;
+	text-transform: uppercase;
+	font-family: sans-serif;
 	color: white;
 	border: none;
 	/* font-size: 1.2rem; */
@@ -48,6 +52,8 @@
 	color: black;
 	background: #cccccccc;
 	outline: none;
+	text-transform: uppercase;
+	font-family: sans-serif;
 	/* font-size: 1.2rem; */
 }
 
