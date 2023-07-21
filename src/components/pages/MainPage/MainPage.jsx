@@ -14,11 +14,11 @@ import Slider from '../../common/Slider';
 function CarShow() {
 	return (
 		<>
-			<OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
+			{/* <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} /> */}
 
 			<PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
 
-			<color args={[0, 0, 0]} attach="background" />
+			{/* <color args={[0, 0, 0]} attach="background" /> */}
 
 			<CubeCamera resolution={256} frames={Infinity}>
 				{(texture) => (
@@ -71,6 +71,16 @@ function CarShow() {
 		</>
 	);
 }
+
+// function CarShow() {
+// 	return (
+// 		<>
+// 			<PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
+
+// 			<Rings />
+// 		</>
+// 	);
+// }
 
 const MainPage = () => {
 	return (
