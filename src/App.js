@@ -9,6 +9,7 @@ import Slider from './components/common/Slider'
 
 
 const MainPage = lazy(() => import('./components/pages/MainPage'));
+const AboutPage = lazy(() => import('./components/pages/AboutPage'));
 
 function App() {
 	const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
@@ -25,9 +26,10 @@ function App() {
 		<BrowserRouter>
 			<IntlProvider messages={messages[currentLocale]} locale={currentLocale} defaultLocale={LOCALES.ENGLISH}>
 				<Header handleChange={handleChange} currentLocale={currentLocale} />
-				<Suspense fallback={<Slider/>}>
+				<Suspense fallback={<Slider />}>
 					<Routes>
 						<Route path="/" element={<MainPage />} />
+						<Route path="/about" element={<AboutPage />} />
 					</Routes>
 				</Suspense>
 			</IntlProvider>

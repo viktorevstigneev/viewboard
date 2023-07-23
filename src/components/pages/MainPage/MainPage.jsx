@@ -20,14 +20,14 @@ function CarShow() {
 
 			{/* <color args={[0, 0, 0]} attach="background" /> */}
 
-			<CubeCamera resolution={256} frames={Infinity}>
+			{/* <CubeCamera resolution={256} frames={Infinity}>
 				{(texture) => (
 					<>
 						<Environment map={texture} />
-						{/* <Car /> */}
+						<Car />
 					</>
 				)}
-			</CubeCamera>
+			</CubeCamera> */}
 
 			<spotLight
 				color={[1, 0.25, 0.7]}
@@ -72,15 +72,7 @@ function CarShow() {
 	);
 }
 
-// function CarShow() {
-// 	return (
-// 		<>
-// 			<PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
 
-// 			<Rings />
-// 		</>
-// 	);
-// }
 
 const MainPage = () => {
 	return (
