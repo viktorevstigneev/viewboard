@@ -29,7 +29,7 @@ function Loader() {
 const MainPage = () => {
 	return (
 		<Main>
-			<Suspense fallback={<Loader />}>
+			<Suspense fallback={<Slider />}>
 				<Canvas camera={{ position: [30, 0, 2] }}>
 					<ambientLight intensity={2} />
 					<pointLight position={[0, 0, 0]} />
