@@ -19,6 +19,7 @@ export const MainPhotos = styled.div`
 
 export const MainTitle = styled.h2`
 	/* width: 400px; */
+	margin-top: 150px;
 `;
 
 export const MainText = styled.p`

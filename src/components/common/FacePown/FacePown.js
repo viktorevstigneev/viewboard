@@ -36,9 +36,9 @@ function HandModel({ x, y, z }) {
 	model.rotation.y = y;
 	model.rotation.x = z;
 
-	model.position.y = -5;
-	model.position.z = 16;
-	model.position.x = -6;
+	model.position.y = -7;
+	model.position.z = 0;
+	model.position.x = -8;
 	model.scale.set(1, 1, 1);
 
 	return (

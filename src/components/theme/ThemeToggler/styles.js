@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ToggleButton = styled.button`
+export const ToggleButton = styled.div`
 	display: block;
 	position: relative;
 	width: fit-content;

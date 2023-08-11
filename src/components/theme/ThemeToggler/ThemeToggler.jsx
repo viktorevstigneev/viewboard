@@ -6,7 +6,7 @@ import './style.css';
 const ThemeToggler = ({ theme, toggleTheme }) => {
 	return (
 		<>
-			<ToggleButton>
+			<ToggleButton >
 				{/* {theme.darkMode ? 'dark' : 'light'} */}
 				<div className="toggleWrapper">
 					<input onClick={toggleTheme} type="checkbox" className="dn" id="dn" checked={theme.darkMode} />

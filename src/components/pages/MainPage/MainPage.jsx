@@ -7,7 +7,7 @@ import Slider from '../../common/Slider';
 import NeuralNetwork from '../../common/Car/Car.js';
 import Face from '../../common/Face/Face.js';
 import FacePown from '../../common/FacePown/FacePown.js';
-import { OrbitControls, Stats } from '@react-three/drei';
+import { OrbitControls, Stars, Stats } from '@react-three/drei';
 // import GodR from '../../common/RightHand/RightHand.js';
 
 import { Html, useProgress } from '@react-three/drei';
@@ -29,15 +29,15 @@ function Loader() {
 const MainPage = () => {
 	return (
 		<Main>
-			<Suspense fallback={<Slider />}>
-				<Canvas fov={150} camera={{ position: [30, 0, 2] }}>
+			<Suspense fallback={<Loader />}>
+				<Canvas camera={{ position: [30, 0, 2] }}>
 					<ambientLight intensity={2} />
 					<pointLight position={[0, 0, 0]} />
 					<ambientLightProbe position={[0, 0, 0]} />
 					<NeuralNetwork />
 					<Face />
-					<FacePown x={-0.6} y={1} z={3} />
-
+					<FacePown x={-0.6} y={1.8} z={3} />
+					<Stars />
 				</Canvas>
 
 				{/* <GodR/> */}
