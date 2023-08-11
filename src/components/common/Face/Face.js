@@ -38,9 +38,9 @@ const TangramPerson = () => {
 	const tangramPersonRef = useRef();
 
 	useFrame((_,delta) => {
-		tangramPersonRef.current.rotation.y += 0.01;
+		tangramPersonRef.current.rotation.y += 0.001;
 		tangramPersonRef.current.rotation.z += 0.01;
-		tangramPersonRef.current.rotation.y += 0.02;
+		tangramPersonRef.current.rotation.y += 0.001;
 	});
 
 	const addCenterAttribute = (geometry) => {
@@ -61,7 +61,7 @@ const TangramPerson = () => {
 
 	const [sqwere] = useLoader(THREE.TextureLoader, ['textures/white_square.jpg']);
 	const [atom] = useLoader(THREE.TextureLoader, ['textures/atom_alphamap.jpg']);
-	console.log('atom: ', atom);
+
 
 	const atomMaterial = new THREE.PointsMaterial({
 		size: 0.2,
