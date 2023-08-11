@@ -1,86 +1,46 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Main } from './styles.js';
-import { Canvas } from '@react-three/fiber';
-import { EffectComposer, DepthOfField, Bloom, ChromaticAberration } from '@react-three/postprocessing';
-import { BlendFunction } from 'postprocessing';
-import { CubeCamera, Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import { Boxes } from '../../common/Boxes/Boxes';
-import { Car } from '../../common/Car/Car';
-import { Ground } from '../../common/Ground/Ground';
-import { FloatingGrid } from '../../common/FloatingGrid/FloatingGrid';
-import { Rings } from '../../common/Rings/Rings';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three/src/loaders/TextureLoader';
+
 import Slider from '../../common/Slider';
+import NeuralNetwork from '../../common/Car/Car.js';
+import Face from '../../common/Face/Face.js';
+import FacePown from '../../common/FacePown/FacePown.js';
+import { OrbitControls, Stats } from '@react-three/drei';
+// import GodR from '../../common/RightHand/RightHand.js';
 
-function CarShow() {
-	return (
-		<>
-			{/* <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} /> */}
+import { Html, useProgress } from '@react-three/drei';
 
-			<PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
+// import { Html } from '@react-three/drei'
+// import { SolarSystemLoading } from 'react-loadingg';
 
-			{/* <color args={[0, 0, 0]} attach="background" /> */}
-
-			{/* <CubeCamera resolution={256} frames={Infinity}>
-				{(texture) => (
-					<>
-						<Environment map={texture} />
-						<Car />
-					</>
-				)}
-			</CubeCamera> */}
-
-			<spotLight
-				color={[1, 0.25, 0.7]}
-				intensity={1.5}
-				angle={0.6}
-				penumbra={0.5}
-				position={[5, 5, 0]}
-				castShadow
-				shadow-bias={-0.0001}
-			/>
-			<spotLight
-				color={[0.14, 0.5, 1]}
-				intensity={2}
-				angle={0.6}
-				penumbra={0.5}
-				position={[-5, 5, 0]}
-				castShadow
-				shadow-bias={-0.0001}
-			/>
-			<Ground />
-			<FloatingGrid />
-			<Boxes />
-			<Rings />
-
-			<EffectComposer>
-				{/* <DepthOfField focusDistance={0.0035} focalLength={0.01} bokehScale={3} height={480} /> */}
-				<Bloom
-					blendFunction={BlendFunction.ADD}
-					intensity={1.3} // The bloom intensity.
-					width={300} // render width
-					height={300} // render height
-					kernelSize={5} // blur kernel size
-					luminanceThreshold={0.15} // luminance threshold. Raise this value to mask out darker elements in the scene.
-					luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
-				/>
-				<ChromaticAberration
-					blendFunction={BlendFunction.NORMAL} // blend mode
-					offset={[0.0005, 0.0012]} // color offset
-				/>
-			</EffectComposer>
-		</>
-	);
+function Loader() {
+	const { progress } = useProgress();
+	return <Html center>{progress} % loaded</Html>;
 }
 
+// export default function Loader() {
+//   return <Html center style={{zIndex:'500', paddingRight: '54px'}}><SolarSystemLoading color='white' size='large'/></Html>
+// }
 
+// 	const [fff] = useLoader(TextureLoader, ['textures/fff.jpg']);
 
 const MainPage = () => {
 	return (
 		<Main>
 			<Suspense fallback={<Slider />}>
-				<Canvas shadows>
-					<CarShow />
+				<Canvas fov={150} camera={{ position: [30, 0, 2] }}>
+					<ambientLight intensity={2} />
+					<pointLight position={[0, 0, 0]} />
+					<ambientLightProbe position={[0, 0, 0]} />
+					<NeuralNetwork />
+					<Face />
+					<FacePown x={-0.6} y={1} z={3} />
+
 				</Canvas>
+
+				{/* <GodR/> */}
 			</Suspense>
 		</Main>
 	);
