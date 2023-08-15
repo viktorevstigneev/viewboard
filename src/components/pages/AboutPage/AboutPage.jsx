@@ -1,88 +1,74 @@
 import React from 'react';
-import { Main, MainContainer, MainPhotos, MainTitle, MainText } from './styles.js';
-import ImageSlider from '../../common/ImageSlider/ImageSlider.jsx';
+import {
+	Main,
+	MainContainer,
+	MainImg,
+	MainTitleWrapper,
+	MainTitle,
+	WayContainer,
+	WayCard,
+	WayLeft,
+	WayRight,
+	WayRightBefore,
+	WaySence,
+	WaySenceText,
+} from './styles.js';
 
-import photo1 from '../../../img/p1.jpg';
-import photo2 from '../../../img/p2.jpg';
-import photo3 from '../../../img/p3.jpg';
-import photo4 from '../../../img/p4.jpg';
-import photo5 from '../../../img/p5.jpg';
-import photo6 from '../../../img/p6.jpg';
-import photo7 from '../../../img/p7.jpg';
-
-const SLIDER__DATA  = [
-    photo1,
-    photo2,
-    photo3,
-    photo4,
-    photo5,
-    photo6,
-    photo7
-]
+import aboutImg from '../../../img/about.png';
 
 const AboutPage = () => {
 	return (
 		<Main>
 			<MainContainer>
-				<MainPhotos>
-					<MainTitle>Моя история</MainTitle>
-					<MainText>Привет, меня зовут Виктор, мне 21 год , я родился в городе Брест</MainText>
-					<ImageSlider slides={SLIDER__DATA}/>
-					{/* <MainText>
-						Начну я, пожалуй, со школьных времен, в детстве я был ничем не примечательным ребенком, которому не давалось
-						ничего, учился я хорошо, потому что всегда все учил в 12 лет я начал заниматься спортом : начал бегать
-					</MainText>
-					<MainText>
-						12 лет : я начал заниматься спортом - бегать, выйграл несколько соревнований и получил грамоты
-					</MainText>
-					<MainText>
-						13 лет : я начал заниматься прыжками, выграл около 3 соревнований по прыжкам и получил грамоты
-					</MainText>
-					<MainText>14 лет : я начал заниматься футболом, играл для души в роли главного нападающего</MainText>
-					<MainText>
-						15 лет : со всеми видами спорта я завязал и начал готовиться к экзаменам, экзамены я сдал. Русский язык -
-						10, Математика - 10, Беларусский язык - 8. Школу закончил со средним балом 8.92
-					</MainText>
-					<MainText>
-						в июне 2017 года я понял что хочу большего от жизни, я вдохновился своими отметками и подумал что я смогу
-						стать успешным
-					</MainText>
-					<MainText>
-						в Июле 2017 года я поехал подавать документы на бухгалтера в город Минск, проходной балл был 8.6, в приемной
-						комиссии мне сказали что я не смогу пройти так как туда подали люди со средним балом выше 9.0 и предложили
-						мне специальность чуть ли не слесаря механника
-					</MainText>
-					<MainText>
-						После Минска я расстроился и поехал поступать в любой попавшийся колледж, это был Гродненский Государственый
-						колледж техники, технологий и дизайна я поступал на программиста
-					</MainText>
-					<MainText>В кабинете приемной комиссии я сказал что я закончу колледж с красным дипломом</MainText>
-					<MainText>
-						16 лет : у меня ничего не получалось в программировании, я списывал у одногруппников, крутился как мог
-					</MainText>
-					<MainText>
-						Мои амбиции вызвали у моих одногрупников насмешки и я стал для многих обузой и я закрылся в себе
-					</MainText>
-					<MainText>так прошел год</MainText>
-					<MainText>
-						17 лет: Я понял что надо что-то менять, в период осознания этого у меня появилось 2 друга и мы создали
-						компанию по саморазвитию
-					</MainText>
-					<MainText>
-						я начал стремительно вникать в программирование и смог. Раньше я списывал у многих, теперь списывали многие
-						у меня
-					</MainText>
-					<MainText>
-						18 лет: я сходил на митап в одну IT компанию вместе со своим другом и я очень вдохновился этим и начал
-						дышать жизнью программиста
-					</MainText>
-					<MainText>18 - 19 лет: я устраиваюсь в работать в эту компанию куда ходил на митап</MainText>
-					<MainText>далее я стремительно развиваюсь и учу новые технологии</MainText>
-					<MainText>
-						21 год: начался кризис в IT и мой конракт не продлили, и новую работу я пока что еще не нашел
-					</MainText> */}
-				</MainPhotos>
+				<MainImg src={aboutImg} />
+				<MainTitleWrapper>
+					<MainTitle>Viktor</MainTitle>
+					<MainTitle>Evstigneev</MainTitle>
+				</MainTitleWrapper>
 			</MainContainer>
+
+			<WayContainer>
+				<WayCard>
+					<WayLeft>In 2017 i enetered cpllege and promise myself to graduate with honors degree</WayLeft>
+					<WayRight>2017</WayRight>
+				</WayCard>
+
+				<WayCard>
+					<WayRightBefore>2019</WayRightBefore>
+					<WayLeft>
+						went to a meetup at an it company, was inspired by the vibe of programmers and from that day on began
+						studying web development
+					</WayLeft>
+				</WayCard>
+
+				<WayCard>
+					<WayLeft>
+						accumulated enough experience, in my opinion, and began to draw up a resume, passed an interview and went on
+						an internship at instinctools
+					</WayLeft>
+					<WayRight>2020</WayRight>
+				</WayCard>
+
+				<WayCard>
+					<WayRightBefore>2021</WayRightBefore>
+					<WayLeft>
+						got a job at instinctools, graduated from college with honors, worked for an English-speaking client
+					</WayLeft>
+				</WayCard>
+			</WayContainer>
+
+			<WaySence>Summary</WaySence>
+
+			<WaySenceText>
+				My name is Victor, the main focus is react js, but this does not negate the fact that I know many other
+				libraries and frameworks. I know OOP principles, SOLID principles, TDD/BDD. In all the technologies that I
+				studied, I began to understand them deeply, but not superficially. For a whole year I worked with an
+				English-speaking client and a team, worked according to the Agile methodology, there were dailies and a
+				retrospective. About me: I am very stress-resistant, communicative, I can solve problems that arise on a project
+				in a team. I always go ahead and I am sure that I will be a great addition to your team, although if there is
+				none, I am ready to lead the project on my own. At the same time, I always study new technologies and teach
+				others, because this is also an important skill and I like it.
+			</WaySenceText>
 		</Main>
 	);
 };

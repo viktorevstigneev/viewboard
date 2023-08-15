@@ -26,6 +26,9 @@ const Header = ({ handleChange, currentLocale, theme }) => {
 					<Link className="header__link" to="/about">
 						<FormattedMessage id="about_link" />
 					</Link>
+					<Link className="header__link" to="/cv">
+						<FormattedMessage id="cv_link" />
+					</Link>
 
 					<div className="header__link">
 						<select className="header__select" onChange={handleChange} value={currentLocale}>

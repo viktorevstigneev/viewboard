@@ -2,13 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 import { COLORS } from '../../../constants';
 
 export const darkTheme = {
-  skeleton: "#d3d3d3",
-  cardImgBg: "#2f3440",
-  cardBg: "#242831",
-  body: COLORS.DARK_THEME_BACKGROUND_COLOR,
-  text: COLORS.DARK_THEME_TEXT_COLOR,
-  headerBackground: COLORS.DARK_THEME_BACKGROUND_COLOR,
-  borderColor: "rgba(255, 255, 255, 0.2)",
+	skeleton: '#d3d3d3',
+	cardImgBg: '#2f3440',
+	cardBg: '#242831',
+	body: COLORS.DARK_THEME_BACKGROUND_COLOR,
+	text: COLORS.DARK_THEME_TEXT_COLOR,
+	headerBackground: COLORS.DARK_THEME_HEADER_COLOR,
+	borderColor: 'rgba(255, 255, 255, 0.2)',
 };
 
 export const lightTheme = {

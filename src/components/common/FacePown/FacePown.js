@@ -25,7 +25,7 @@ function HandModel({ x, y, z }) {
 	// wireframeGeometry.translate(0, 0, 1);
 
 	// Создаем материал для голограммы из синих линий
-	const material = new LineBasicMaterial({ color: 0x0000ff, linewidth: 0.1 }); // измените толщину на 2
+	const material = new LineBasicMaterial({ color: 0x5a0494, linewidth: 0.1 }); // измените толщину на 2
 
 	// Создаем объект LineSegments для отображения голограммы из синих линий
 	const wireframe = new LineSegments(edgesGeometry, material);

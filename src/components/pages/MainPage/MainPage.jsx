@@ -39,8 +39,6 @@ const MainPage = () => {
 					<FacePown x={-0.6} y={1.8} z={3} />
 					<Stars />
 				</Canvas>
-
-				{/* <GodR/> */}
 			</Suspense>
 		</Main>
 	);

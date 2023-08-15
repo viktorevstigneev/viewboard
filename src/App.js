@@ -10,6 +10,7 @@ import Slider from './components/common/Slider'
 
 const MainPage = lazy(() => import('./components/pages/MainPage'));
 const AboutPage = lazy(() => import('./components/pages/AboutPage'));
+const CVPage = lazy(() => import('./components/pages/CvPage'));
 
 function App() {
 	const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
@@ -30,6 +31,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<MainPage />} />
 						<Route path="/about" element={<AboutPage />} />
+						<Route path="/cv" element={<CVPage />} />
 					</Routes>
 				</Suspense>
 			</IntlProvider>

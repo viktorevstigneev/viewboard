@@ -1,9 +1,10 @@
 @font-face {
-  font-family: Pompiere;
-  src: url('./fonts/Pompiere-Regular.ttf');
+  font-family: Bayon;
+  src: url('./fonts/Bayon-Regular.ttf');
 }
 
 body{
   background: black;
   font-size: 1.3rem;
+  font-family: Bayon;
 }
