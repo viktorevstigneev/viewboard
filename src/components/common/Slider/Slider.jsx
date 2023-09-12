@@ -4,11 +4,12 @@ import './style.css';
 
 const Slider = () => {
 	return (
-		<div className="slider">
-			<div className="siler__item"></div>
-			<div className="siler__item"></div>
-			<div className="siler__item"></div>
-		</div>
+		<>
+			<div className="slider">
+				<div className="slider__inner"></div>
+			</div>
+			<p className="slider__text">loading</p>
+		</>
 	);
 };
 

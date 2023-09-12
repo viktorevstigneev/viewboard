@@ -10,19 +10,7 @@ import FacePown from '../../common/FacePown/FacePown.js';
 import { OrbitControls, Stars, Stats } from '@react-three/drei';
 // import GodR from '../../common/RightHand/RightHand.js';
 
-import { Html, useProgress } from '@react-three/drei';
 
-// import { Html } from '@react-three/drei'
-// import { SolarSystemLoading } from 'react-loadingg';
-
-function Loader() {
-	const { progress } = useProgress();
-	return <Html center>{progress} % loaded</Html>;
-}
-
-// export default function Loader() {
-//   return <Html center style={{zIndex:'500', paddingRight: '54px'}}><SolarSystemLoading color='white' size='large'/></Html>
-// }
 
 // 	const [fff] = useLoader(TextureLoader, ['textures/fff.jpg']);
 
@@ -31,13 +19,13 @@ const MainPage = () => {
 		<Main>
 			<Suspense fallback={<Slider />}>
 				<Canvas camera={{ position: [30, 0, 2] }}>
-					<ambientLight intensity={2} />
+					{/* <ambientLight intensity={2} />
 					<pointLight position={[0, 0, 0]} />
 					<ambientLightProbe position={[0, 0, 0]} />
 					<NeuralNetwork />
 					<Face />
 					<FacePown x={-0.6} y={1.8} z={3} />
-					<Stars />
+					<Stars /> */}
 				</Canvas>
 			</Suspense>
 		</Main>
