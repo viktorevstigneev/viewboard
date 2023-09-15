@@ -44,6 +44,8 @@ export const WayCard = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 20px;
+
+	transform: 10%;
 `;
 export const WayLeft = styled.div`
 	font-family: Bayon;
@@ -53,6 +55,7 @@ export const WayRight = styled.div`
 	color: #8e00ed;
 	display: flex;
 	align-items: center;
+	position: relative;
 
 	&::after {
 		content: '';
@@ -62,12 +65,26 @@ export const WayRight = styled.div`
 		background: #8e00ed;
 		margin-left: 10px;
 	}
+
+	&::before {
+		content: '';
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 100px;
+		background: #8e00ed;
+		margin-right: 10px;
+		position: absolute;
+		top: -10px;
+		right: -15px;
+	}
 `;
 
 export const WayRightBefore = styled.div`
 	color: #8e00ed;
 	display: flex;
 	align-items: center;
+	position: relative;
 
 	&::before {
 		content: '';
@@ -76,6 +93,19 @@ export const WayRightBefore = styled.div`
 		height: 100px;
 		background: #8e00ed;
 		margin-right: 10px;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		width: 10px;
+		height:10px;
+		border-radius: 100px;
+		background: #8e00ed;
+		margin-right: 10px;
+		position: absolute;
+		bottom: -10px;
+		left: -5px;
 	}
 `;
 

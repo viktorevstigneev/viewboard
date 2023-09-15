@@ -3,6 +3,11 @@
   src: url('./fonts/Bayon-Regular.ttf');
 }
 
+@font-face {
+  font-family: Star;
+  src: url('./fonts/Star.woff');
+}
+
 body{
   background: black;
   font-size: 1.3rem;
